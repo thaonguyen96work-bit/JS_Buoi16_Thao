@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài tập mảng JavaScript</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+<body class="bg-white text-black">
+<main class="mx-auto max-w-4xl px-4 pb-10 pt-5">
+  <h1 class="mb-4 text-2xl font-bold">Bài tập mảng JavaScript</h1>
+
+  <section class="mb-4 border border-black p-3" aria-label="Nhập mảng">
+    <label for="numInput" class="font-bold">Nhập số nguyên:</label>
+    <div class="mt-1 flex flex-wrap gap-2">
+      <input id="numInput" type="number" step="1" inputmode="numeric" placeholder="Ví dụ: 7" class="border border-black bg-white px-2 py-1 text-black min-w-0 flex-1">
+      <button id="btnAdd" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Thêm số</button>
+      <button id="btnClear" class="cursor-pointer border border-black bg-white px-3 py-1 text-black">Xóa mảng</button>
+    </div>
+    <p id="err" role="alert" class="mt-1.5 min-h-6"></p>
+    <div id="arrView" aria-live="polite" class="mt-1.5 break-words"></div>
+  </section>
+
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">1. Tổng các số dương trong mảng</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="sumPos" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Tính</button></div>
+    <div id="out1" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">2. Đếm số dương trong mảng</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="countPos" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Đếm</button></div>
+    <div id="out2" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">3. Tìm số nhỏ nhất trong mảng</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="min" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Tìm</button></div>
+    <div id="out3" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">4. Tìm số dương nhỏ nhất trong mảng</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="minPos" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Tìm</button></div>
+    <div id="out4" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">5. Tìm số chẵn cuối cùng (không có thì trả về -1)</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="lastEven" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Tìm</button></div>
+    <div id="out5" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">6. Đổi chỗ 2 giá trị theo vị trí</div>
+    <div class="flex flex-wrap items-center gap-2"><input id="pos1" type="number" min="0" step="1" placeholder="Vị trí 1" aria-label="Vị trí thứ nhất" class="border border-black bg-white px-2 py-1 text-black w-28"><input id="pos2" type="number" min="0" step="1" placeholder="Vị trí 2" aria-label="Vị trí thứ hai" class="border border-black bg-white px-2 py-1 text-black w-28"><button data-act="swap" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Đổi chỗ</button></div>
+    <div id="out6" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">7. Sắp xếp mảng tăng dần</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="sort" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Sắp xếp</button></div>
+    <div id="out7" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">8. Tìm số nguyên tố đầu tiên (không có thì trả về -1)</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="firstPrime" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Tìm</button></div>
+    <div id="out8" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">9. Nhập mảng số thực (cách nhau bằng dấu phẩy), đếm số nguyên</div>
+    <div class="flex flex-wrap items-center gap-2"><input id="realInput" type="text" placeholder="1.5, 2, 3.7, 4" aria-label="Mảng số thực" class="border border-black bg-white px-2 py-1 text-black w-52"><button data-act="countInt" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">Đếm</button></div>
+    <div id="out9" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+  <div class="flex flex-wrap items-center gap-3 border-t border-black py-3 last:border-b">
+    <div class="min-w-[260px] flex-1">10. So sánh số lượng số dương và số âm</div>
+    <div class="flex flex-wrap items-center gap-2"><button data-act="compare" class="cursor-pointer border border-black bg-black px-3 py-1 text-white">So sánh</button></div>
+    <div id="out10" class="min-h-6 min-w-[220px] flex-1 break-words font-bold"></div>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
